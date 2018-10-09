@@ -1,3 +1,21 @@
-<p>
-  feed works!
-</p>
+<div class="container-fluid main" (window:scroll)="onScrollUp($event)">
+  <div class="row">
+    <ul id="thumbnailsList">
+      <div class="masonry-layout">
+          <div class="masonry-layout__panel" *ngFor="let image of visibleImages">
+            
+            <img class="masonry-layout__panel-content" src="{{image.url}}">
+            
+          </div>
+      </div>
+      <div class="masonry-layout">
+          <div class="masonry-layout__panel" *ngFor="let image of visibleImages2">
+            
+            <img class="masonry-layout__panel-content" src="{{image.url}}">
+            
+          </div>
+      </div>
+    </ul>
+  </div>
+  
+</div>

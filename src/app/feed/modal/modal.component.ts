@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { ImageServiceService } from '../../image-service.service';
+
 
 @Component({
   selector: 'app-modal',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private imageService: ImageServiceService) { }
 
   ngOnInit() {
   }
