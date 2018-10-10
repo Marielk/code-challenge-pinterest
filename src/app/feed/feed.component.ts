@@ -1,6 +1,6 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { ImageServiceService } from '../image-service.service';
-
+import { NavBarComponent } from '../nav-bar/nav-bar.component';
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
@@ -10,11 +10,16 @@ import { ImageServiceService } from '../image-service.service';
 
 export class FeedComponent implements OnInit {
   @HostListener('scroll', ['$event'])
-
+  
   visibleImages: any[] = [];
   visibleImages2: any[] = [];
-  constructor(private imageService: ImageServiceService) {
+  visibleImagesSearch: any[] = [];
+  values: string;
+  constructor(private imageService: ImageServiceService, private navBar: NavBarComponent) {
+
     this.visibleImages = this.imageService.getImagesFetch();
+    this.values = this.navBar.onKey(event);
+    this.visibleImagesSearch = this.imageService.getImagesSearch(this.values);
     // console.log(this.visibleImages);
   }
 
