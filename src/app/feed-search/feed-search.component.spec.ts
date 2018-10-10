@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ImagePlaceComponent } from './image-place.component';
+import { FeedSearchComponent } from './feed-search.component';
 
-describe('ImagePlaceComponent', () => {
-  let component: ImagePlaceComponent;
-  let fixture: ComponentFixture<ImagePlaceComponent>;
+describe('FeedSearchComponent', () => {
+  let component: FeedSearchComponent;
+  let fixture: ComponentFixture<FeedSearchComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ImagePlaceComponent ]
+      declarations: [ FeedSearchComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ImagePlaceComponent);
+    fixture = TestBed.createComponent(FeedSearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
