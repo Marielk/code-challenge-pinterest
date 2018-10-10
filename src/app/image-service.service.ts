@@ -15,7 +15,7 @@ export class ImageServiceService {
   IMAGES2: any[] = [];
   IMAGESSearch: any[] = [];
   accesKey = 'client_id=f096278b5be3b39a1319858a4841c39c2fbc1e4a9be7dad87079617db9d9ec69';
-  endPoint = 'https://api.unsplash.com/photos/?';
+  endPoint = 'https://api.unsplash.com/photos?';
   params = '&per_page=20';
   pages = '&page=20';
   query = 'query=';
@@ -24,7 +24,7 @@ export class ImageServiceService {
 
   getImagesFetch() {
     this.httpClient.get(`${this.endPoint}` + `${this.accesKey}` + `${this.params}`).subscribe((data: any[]) => {
-      console.log(data);
+      // console.log(data);
       data.forEach(img =>
         this.IMAGES.push(
           {
@@ -53,10 +53,10 @@ export class ImageServiceService {
   }
 
   getImagesSearch(search) {
-    const querySearch = `${this.query}` + `${search}`;
-    this.httpClient.get(`${this.endPoint}` + `${querySearch}` + `${this.accesKey}` + `${this.params}`).subscribe((data: any[]) => {
-      console.log(data);
-      data.forEach(img =>
+    // const querySearch = `${this.query}` + `${search}` + `&`;
+    this.httpClient.get(`https://api.unsplash.com/search/photos?page=1&query=${search}` + '&' + `${this.accesKey}`).subscribe((data: any[]) => {
+     console.log(data);
+      data.results.forEach(img =>
         this.IMAGESSearch.push(
           {
             'id': img.id,
@@ -65,7 +65,15 @@ export class ImageServiceService {
         )
       );
     });
+    // this.getImagesTest();
     return this.visibleImagesSearch = this.IMAGESSearch;
   }
+
+  // getImagesTest() {
+  //   const querySearch = `${this.query}` + 'dog' + `&`;
+  //   this.httpClient.get('https://api.unsplash.com/search/photos?page=1&query=office&' + `${this.accesKey}`).subscribe((data: any[]) => {
+  //    console.log(data.results);
+  //   });
+  // }
 
 }

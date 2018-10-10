@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Input } from '@angular/core';
+import { Component, OnInit, HostListener, Input, Injectable } from '@angular/core';
 import { ImageServiceService } from '../image-service.service';
 
 @Component({
@@ -7,6 +7,9 @@ import { ImageServiceService } from '../image-service.service';
   styleUrls: ['./feed.component.css']
 })
 
+@Injectable({
+  providedIn: 'root'
+})
 
 export class FeedComponent implements OnInit {
   @HostListener('scroll', ['$event'])
@@ -27,6 +30,16 @@ export class FeedComponent implements OnInit {
     if (scroll === 2815) {
       this.visibleImages2 = this.imageService.getFectchAgain();
     }
+  }
+
+  desapear() {
+    const place = document.getElementById('main');
+    place.style.display = 'none';
+  }
+
+  show() {
+    const place = document.getElementById('main');
+    place.style.display = 'block';
   }
 
   ngOnInit() {

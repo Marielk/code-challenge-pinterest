@@ -1,3 +1,4 @@
-<app-nav-bar></app-nav-bar>
-<router-outlet></router-outlet>
+<app-nav-bar (writen)="updateFromChild($event)"></app-nav-bar>            
+<app-feed></app-feed> 
+<app-feed-search [search] = "search" ></app-feed-search> 
 
