@@ -5,10 +5,10 @@
         <div class="masonry-layout">
             <div class="masonry-layout__panel" *ngFor="let image of visibleImagesSearch">
               
-              <img class="masonry-layout__panel-content" src="{{image.url}}" data-toggle="modal" data-target="#exampleModal2">
+              <img class="masonry-layout__panel-content" src="{{image.url}}" data-toggle="modal" data-target="#{{image.id}}">
               
               <!-- Modal -->
-              <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal fade" id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"  *ngFor="let image of visibleImagesSearch">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
